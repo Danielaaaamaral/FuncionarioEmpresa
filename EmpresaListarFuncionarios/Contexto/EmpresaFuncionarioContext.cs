@@ -18,11 +18,6 @@ namespace ClienteFornecedor.Contexto
         {
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Empresa>().ToTable("Empresa");
-            modelBuilder.Entity<Funcionario>().ToTable("Funcionario");
-            modelBuilder.Entity<Endereco>().ToTable("Endereco");
-        }
+       
     }
 }
