@@ -11,6 +11,7 @@ namespace EmpresaListarFuncionarios.Repositorio
     public class EmpresaFuncionarioRepositorio : IEmpresaFuncionarioRepositorio, IDisposable
     {
         private EmpresaFuncionarioContext _contexto = null;
+        bool disposed = false;
         #region Construtor
 
         public EmpresaFuncionarioRepositorio(EmpresaFuncionarioContext contexto)
@@ -147,50 +148,25 @@ namespace EmpresaListarFuncionarios.Repositorio
             }
         }
         #endregion
-        #region endereco
-        public async Task<Endereco> AdicionarEndereco(Endereco end)
-        {
-            try
-            {
-                _contexto.Endereco.Add(end);
-                await _contexto.SaveChangesAsync();
-                return await BuscarEnderecoPorId(end.IdEndereco);
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-        public async Task<Endereco> BuscarEnderecoPorId(long Id)
-        {
-            try
-            {
-                return await _contexto.Endereco.Where(x => x.IdEndereco == Id).FirstOrDefaultAsync();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        public async Task DeletarEndereco(long id)
-        {
-            try
-            {
-                var end = await BuscarEnderecoPorId(id);
-                _contexto.Endereco.Remove(end);
-                await _contexto.SaveChangesAsync();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-        #endregion
+       
         #region dispose
         public void Dispose()
         {
-            throw new NotImplementedException();
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+            if (disposing)
+            {
+                //libera recursos gerenciados pela CLR
+            }
+            //else: libera recursos não gerenciados pela CLR
+            disposed = true;
         }
         #endregion
 

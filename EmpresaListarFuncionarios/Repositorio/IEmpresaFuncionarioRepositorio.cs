@@ -23,11 +23,6 @@ namespace EmpresaListarFuncionarios.Repositorio
         Task DeletarFuncionario(long id);
 
         #endregion
-        #region Endereco
-        Task<Endereco> BuscarEnderecoPorId(long Id);
-        Task<Endereco> AdicionarEndereco(Endereco endereco);
-        Task DeletarEndereco(long id);
-
-        #endregion
+        
     }
 }

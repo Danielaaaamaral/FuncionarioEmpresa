@@ -8,23 +8,32 @@ using Microsoft.EntityFrameworkCore;
 using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
 using EmpresaListarFuncionarios.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EmpresaListarFuncionarios.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class EmpresasController : ControllerBase
     {
-        private IEmpresaFuncionarioRepositorio _repositorio;
+        private readonly IEmpresaFuncionarioRepositorio _repositorio;
 
         public EmpresasController(IEmpresaFuncionarioRepositorio repositorio, EmpresaFuncionarioContext context)
         {
             this._repositorio = repositorio;
         }
 
-        // GET: api/Empresas
+      // GET: api/Empresas
+        /// <summary>
+        /// Lista os itens da To-do list.
+        /// </summary>
+        /// <returns>Os itens da To-do list</returns>
+        /// <response code="200">Returna os itens da To-do list cadastrados</response>
+
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Empresa>>> GetEmpresa()
+        [ProducesResponseType(200)]
+        public async Task<List<Empresa>> GetEmpresa()
         {
             try
             {

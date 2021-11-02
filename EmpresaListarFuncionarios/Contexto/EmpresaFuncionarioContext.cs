@@ -10,7 +10,7 @@ namespace ClienteFornecedor.Contexto
     {
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Funcionario> Funcionario { get; set; }
-        public DbSet<Endereco> Endereco { get; set; }
+
 
         //construtor
         public EmpresaFuncionarioContext(DbContextOptions<EmpresaFuncionarioContext> options)

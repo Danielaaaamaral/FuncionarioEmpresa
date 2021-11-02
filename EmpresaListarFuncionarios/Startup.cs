@@ -1,4 +1,5 @@
 using ClienteFornecedor.Contexto;
+using EmpresaListarFuncionarios.Repositorio;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.Swagger;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,9 +32,16 @@ namespace EmpresaListarFuncionarios
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IEmpresaFuncionarioRepositorio, EmpresaFuncionarioRepositorio>();
             services.AddTransient<EmpresaFuncionarioContext>();
             services.AddDbContext<EmpresaFuncionarioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            
+
+            services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1",
+                        new OpenApiInfo { Title = "TodoAPI", Version = "v1" });
+                });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,6 +61,15 @@ namespace EmpresaListarFuncionarios
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            //Ativa o Swagger
+            app.UseSwagger();
+
+            // Ativa o Swagger UI
+            app.UseSwaggerUI(opt =>
+            {
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI V1");
             });
         }
     }

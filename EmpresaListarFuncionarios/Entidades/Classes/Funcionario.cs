@@ -30,7 +30,10 @@ namespace EmpresaListarFuncionarios.Entidades.Classes
             [Required]
             [DisplayName("Salario")]
             public decimal Salario { get; set; }
+            [Required]
+            [DisplayName("Empresa")]
+            public int IdEndereco { get; set; }
 
 
-        }
+    }
 }
