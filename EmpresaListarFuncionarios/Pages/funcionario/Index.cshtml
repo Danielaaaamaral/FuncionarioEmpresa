@@ -1,0 +1,48 @@
+﻿@page
+@model EmpresaListarFuncionarios.Pages.funcionario.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].IdEmpresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].IdCargo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].NomeFuncionario)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Funcionario[0].Salario)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Funcionario) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEmpresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCargo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeFuncionario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salario)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdFuncionario">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdFuncionario">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdFuncionario">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

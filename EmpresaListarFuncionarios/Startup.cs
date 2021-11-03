@@ -35,7 +35,7 @@ namespace EmpresaListarFuncionarios
             services.AddScoped<IEmpresaFuncionarioRepositorio, EmpresaFuncionarioRepositorio>();
             services.AddTransient<EmpresaFuncionarioContext>();
             services.AddDbContext<EmpresaFuncionarioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddRazorPages();
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1",
@@ -60,9 +60,8 @@ namespace EmpresaListarFuncionarios
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapRazorPages();
             });
-
             //Ativa o Swagger
             app.UseSwagger();
 

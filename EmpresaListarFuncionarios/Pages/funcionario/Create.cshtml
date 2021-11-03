@@ -1,0 +1,43 @@
+﻿@page
+@model EmpresaListarFuncionarios.Pages.funcionario.CreateModel
+
+<h4>Funcionario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Funcionario.IdEmpresa" class="control-label"></label>
+                <input asp-for="Funcionario.IdEmpresa" class="form-control" />
+                <span asp-validation-for="Funcionario.IdEmpresa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.IdCargo" class="control-label"></label>
+                <input asp-for="Funcionario.IdCargo" class="form-control" />
+                <span asp-validation-for="Funcionario.IdCargo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.NomeFuncionario" class="control-label"></label>
+                <input asp-for="Funcionario.NomeFuncionario" class="form-control" />
+                <span asp-validation-for="Funcionario.NomeFuncionario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionario.Salario" class="control-label"></label>
+                <input asp-for="Funcionario.Salario" class="form-control" />
+                <span asp-validation-for="Funcionario.Salario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

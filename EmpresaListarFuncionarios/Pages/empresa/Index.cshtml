@@ -1,0 +1,72 @@
+﻿@page
+@model EmpresaListarFuncionarios.Pages.empresa.IndexModel
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].NomeEmpresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Numero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Uf)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa[0].Complemento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Empresa) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeEmpresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdEmpresa">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdEmpresa">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdEmpresa">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
