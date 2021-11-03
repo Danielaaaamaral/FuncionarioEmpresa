@@ -3,14 +3,16 @@ using ClienteFornecedor.Contexto;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmpresaListarFuncionarios.Migrations
 {
     [DbContext(typeof(EmpresaFuncionarioContext))]
-    partial class EmpresaFuncionarioContextModelSnapshot : ModelSnapshot
+    [Migration("20211103015828_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,6 +63,21 @@ namespace EmpresaListarFuncionarios.Migrations
                     b.HasKey("IdEmpresa");
 
                     b.ToTable("Empresa");
+                });
+
+            modelBuilder.Entity("EmpresaListarFuncionarios.Entidades.Classes.EmpresaFuncionario", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("IdEmpresa")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmpresaFuncionario");
                 });
 
             modelBuilder.Entity("EmpresaListarFuncionarios.Entidades.Classes.Funcionario", b =>

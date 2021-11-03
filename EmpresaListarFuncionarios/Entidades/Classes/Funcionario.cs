@@ -20,8 +20,8 @@ namespace EmpresaListarFuncionarios.Entidades.Classes
             public int IdEmpresa { get; set; }
 
             [Required]
-            [DisplayName("Cargo")]
-            public string Cargo { get; set; }
+            [DisplayName("IdCargo")]
+            public int IdCargo { get; set; }
 
             [Required]
             [StringLength(100)]
@@ -30,9 +30,7 @@ namespace EmpresaListarFuncionarios.Entidades.Classes
             [Required]
             [DisplayName("Salario")]
             public decimal Salario { get; set; }
-            [Required]
-            [DisplayName("Empresa")]
-            public int IdEndereco { get; set; }
+
 
 
     }

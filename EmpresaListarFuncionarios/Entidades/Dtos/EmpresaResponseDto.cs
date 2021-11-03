@@ -1,22 +1,22 @@
-﻿using System;
+﻿using EmpresaListarFuncionarios.Entidades.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EmpresaListarFuncionarios.Entidades.Classes
+namespace EmpresaListarFuncionarios.Entidades.Dtos
 {
-    public class Empresa
+    public class EmpresaResponseDto
     {
-        [Key]
         [DisplayName("Id")]
         public int IdEmpresa { get; set; }
 
         [Required]
         [StringLength(200)]
         [DisplayName("Nome")]
-        public string NomeEmpresa{ get; set; }
+        public string NomeEmpresa { get; set; }
 
 
         [StringLength(100)]
@@ -47,6 +47,7 @@ namespace EmpresaListarFuncionarios.Entidades.Classes
         [DisplayName("Complemento")]
         public string Complemento { get; set; }
 
-      
+        [DisplayName("Lista Funcionario")]
+        public List<FuncionarioResponseDto> ListFuncionario{ get; set; }
     }
 }

@@ -9,6 +9,7 @@ using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
 using EmpresaListarFuncionarios.Repositorio;
 using Microsoft.AspNetCore.Authorization;
+using EmpresaListarFuncionarios.Entidades.Dtos;
 
 namespace EmpresaListarFuncionarios.Controllers
 {
@@ -33,7 +34,7 @@ namespace EmpresaListarFuncionarios.Controllers
 
         [HttpGet]
         [ProducesResponseType(200)]
-        public async Task<List<Empresa>> GetEmpresa()
+        public async Task<List<EmpresaResponseDto>> GetEmpresa()
         {
             try
             {
@@ -47,11 +48,11 @@ namespace EmpresaListarFuncionarios.Controllers
 
         // GET: api/Empresas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Empresa>> GetEmpresa(int id)
+        public async Task<EmpresaResponseDto> GetEmpresa(int id)
         {
             try
             {
-                var empresa = await _repositorio.BuscarEmpresaPorId(id);
+                var empresa = await _repositorio.BuscarEmpresaResponsePorId(id);
 
                 if (empresa == null)
                 {
@@ -88,11 +89,11 @@ namespace EmpresaListarFuncionarios.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<Empresa> PostEmpresa([FromBody]Empresa empresa)
+        public async Task PostEmpresa([FromBody]Empresa empresa)
         {
             try
             {
-                return await _repositorio.AdicionarEmpresa(empresa);
+                 await _repositorio.AdicionarEmpresa(empresa);
             }
             catch (Exception e)
             {

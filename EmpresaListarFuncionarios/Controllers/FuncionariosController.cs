@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
 using EmpresaListarFuncionarios.Repositorio;
+using EmpresaListarFuncionarios.Entidades.Dtos;
 
 namespace FuncionarioListarFuncionarios.Controllers
 {
@@ -80,7 +81,7 @@ namespace FuncionarioListarFuncionarios.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<Funcionario> PostFuncionario([FromBody] Funcionario Funcionario)
+        public async Task<FuncionarioResponseDto> PostFuncionario([FromBody] Funcionario Funcionario)
         {
             try
             {
