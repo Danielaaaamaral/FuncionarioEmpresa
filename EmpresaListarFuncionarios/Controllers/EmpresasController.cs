@@ -19,10 +19,12 @@ namespace EmpresaListarFuncionarios.Controllers
     public class EmpresasController : ControllerBase
     {
         private readonly IEmpresaFuncionarioRepositorio _repositorio;
+        private EmpresaFuncionarioContext _context;
 
         public EmpresasController(IEmpresaFuncionarioRepositorio repositorio, EmpresaFuncionarioContext context)
         {
             this._repositorio = repositorio;
+            this._context = context;
         }
 
       // GET: api/Empresas

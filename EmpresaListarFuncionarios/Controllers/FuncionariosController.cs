@@ -17,10 +17,12 @@ namespace FuncionarioListarFuncionarios.Controllers
     public class FuncionariosController : ControllerBase
     {
         private IEmpresaFuncionarioRepositorio _repositorio;
+        private EmpresaFuncionarioContext _context;
 
         public FuncionariosController(IEmpresaFuncionarioRepositorio repositorio, EmpresaFuncionarioContext context)
         {
             this._repositorio = repositorio;
+            this._context = context;
         }
 
 
