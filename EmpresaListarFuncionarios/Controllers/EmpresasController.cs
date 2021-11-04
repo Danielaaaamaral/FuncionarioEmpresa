@@ -20,7 +20,9 @@ namespace EmpresaListarFuncionarios.Controllers
     {
         private readonly IEmpresaFuncionarioRepositorio _repositorio;
         private EmpresaFuncionarioContext _context;
-
+        /// <summary>
+        /// Construtor Empresa
+        /// </summary>
         public EmpresasController(IEmpresaFuncionarioRepositorio repositorio, EmpresaFuncionarioContext context)
         {
             this._repositorio = repositorio;
@@ -29,7 +31,7 @@ namespace EmpresaListarFuncionarios.Controllers
 
       // GET: api/Empresas
         /// <summary>
-        /// Lista os itens da To-do list.
+        /// Lista todas empresas.
         /// </summary>
         /// <returns>Os itens da To-do list</returns>
         /// <response code="200">Returna os itens da To-do list cadastrados</response>
@@ -49,6 +51,9 @@ namespace EmpresaListarFuncionarios.Controllers
         }
 
         // GET: api/Empresas/5
+        /// <summary>
+        /// Lista empresa por id.
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<EmpresaResponseDto> GetEmpresa(int id)
         {
@@ -71,6 +76,9 @@ namespace EmpresaListarFuncionarios.Controllers
         }
 
         // PUT: api/Empresas/5
+        /// <summary>
+        /// atualizar empresa
+        /// </summary>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -88,6 +96,9 @@ namespace EmpresaListarFuncionarios.Controllers
         }
 
         // POST: api/Empresas
+        /// <summary>
+        /// Adicionar empresa
+        /// </summary>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -105,6 +116,9 @@ namespace EmpresaListarFuncionarios.Controllers
         }
 
         // DELETE: api/Empresas/5
+        /// <summary>
+        /// apagar empresa.
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task DeleteEmpresa(int id)
         {

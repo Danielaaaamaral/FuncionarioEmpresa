@@ -18,7 +18,9 @@ namespace FuncionarioListarFuncionarios.Controllers
     {
         private IEmpresaFuncionarioRepositorio _repositorio;
         private EmpresaFuncionarioContext _context;
-
+        /// <summary>
+        /// Construtor Funcionario 
+        /// </summary>
         public FuncionariosController(IEmpresaFuncionarioRepositorio repositorio, EmpresaFuncionarioContext context)
         {
             this._repositorio = repositorio;
@@ -27,6 +29,9 @@ namespace FuncionarioListarFuncionarios.Controllers
 
 
         // GET: api/Funcionarios
+        /// <summary>
+        /// Lista todos Funcionarios
+        /// </summary>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FuncionarioResponseDto>>> GetFuncionario()
         {
@@ -41,6 +46,9 @@ namespace FuncionarioListarFuncionarios.Controllers
         }
 
         // GET: api/Funcionarios/5
+        /// <summary>
+        /// Lista funcionario por id
+        /// </summary>
         [HttpGet("{id}")]
         public async Task<ActionResult<FuncionarioResponseDto>> GetFuncionario(int id)
         {
@@ -63,6 +71,9 @@ namespace FuncionarioListarFuncionarios.Controllers
         }
 
         // PUT: api/Funcionarios/5
+        /// <summary>
+        /// atualizar funcionario
+        /// </summary>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
@@ -80,6 +91,9 @@ namespace FuncionarioListarFuncionarios.Controllers
         }
 
         // POST: api/Funcionarios
+        /// <summary>
+        /// Adicionar funcionario
+        /// </summary>
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -97,6 +111,9 @@ namespace FuncionarioListarFuncionarios.Controllers
         }
 
         // DELETE: api/Funcionarios/5
+        /// <summary>
+        /// Apagar Funcionario.
+        /// </summary>
         [HttpDelete("{id}")]
         public async Task DeleteFuncionario(int id)
         {

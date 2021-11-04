@@ -13,23 +13,38 @@ namespace EmpresaListarFuncionarios.Entidades.Classes
             [Key]
             [UIHint("Id")]
             [DisplayName("Id")]
-            public int IdFuncionario { get; set; }
+            /// <summary>
+            /// Identificador Funcionario
+            /// </summary>
+        public int IdFuncionario { get; set; }
 
             [Required]
             [DisplayName("Empresa")]
-            public int IdEmpresa { get; set; }
+        /// <summary>
+        /// Identificador Empresa
+        /// </summary>
+        public int IdEmpresa { get; set; }
 
             [Required]
             [DisplayName("IdCargo")]
-            public int IdCargo { get; set; }
+        /// <summary>
+        /// Identificador Cargo
+        /// </summary>
+        public int IdCargo { get; set; }
 
             [Required]
             [StringLength(100)]
             [DisplayName("Nome")]
-            public string NomeFuncionario { get; set; }
+        /// <summary>
+        /// Nome funcionario
+        /// </summary>
+        public string NomeFuncionario { get; set; }
             [Required]
             [DisplayName("Salario")]
-            public decimal Salario { get; set; }
+        /// <summary>
+        /// Valor Salario
+        /// </summary>
+        public decimal Salario { get; set; }
 
 
 
