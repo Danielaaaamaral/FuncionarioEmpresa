@@ -101,8 +101,9 @@ namespace EmpresaListarFuncionarios.Repositorio
                         var funcResp = await MappRespFuncionario(func);
                         empResponse.ListFuncionario.Add(funcResp);
                     }
+                    response.Add(empResponse);
                 }
-                response.Add(empResponse);
+                
                 return response;
             }
             catch (Exception e)

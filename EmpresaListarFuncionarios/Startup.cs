@@ -37,12 +37,12 @@ namespace EmpresaListarFuncionarios
             services.AddScoped<IEmpresaFuncionarioRepositorio, EmpresaFuncionarioRepositorio>();
             services.AddTransient<EmpresaFuncionarioContext>();
             services.AddDbContext<EmpresaFuncionarioContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-          
+
             services.AddSwaggerGen(c =>
-                {
-                    c.SwaggerDoc("v1",
-                        new OpenApiInfo { Title = "EmpresaListarFuncionarios", Version = "v1" });
-                });
+            {
+                c.SwaggerDoc("v1",
+                    new OpenApiInfo { Title = "TodoAPI", Version = "v1" });
+            });
 
         }
      
@@ -70,6 +70,7 @@ namespace EmpresaListarFuncionarios
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers(); 
             });
             //Ativa o Swagger
             app.UseSwagger();
@@ -77,7 +78,7 @@ namespace EmpresaListarFuncionarios
             // Ativa o Swagger UI
             app.UseSwaggerUI(opt =>
             {
-                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "EmpresaListarFuncionarios V1");
+                opt.SwaggerEndpoint("/swagger/v1/swagger.json", "TodoAPI V1");
             });
         }
     }
