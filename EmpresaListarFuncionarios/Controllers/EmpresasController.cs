@@ -74,7 +74,7 @@ namespace EmpresaListarFuncionarios.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<Empresa> PutEmpresa([FromBody]Empresa empresa)
+        public async Task<EmpresaResponseDto> PutEmpresa([FromBody]Empresa empresa)
         {
             try
             {

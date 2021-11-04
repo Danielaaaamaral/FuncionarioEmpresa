@@ -11,18 +11,20 @@ namespace EmpresaListarFuncionarios.Repositorio
     {
         #region Empresa
         Task<List<EmpresaResponseDto>> BuscarTodosEmpresas();
+        Task<EmpresaResponseDto> BuscarEmpresaResponsePorId(long Id);
         Task<Empresa> BuscarEmpresaPorId(long Id);
         Task DeletarEmpresa(long id);
-        Task<Empresa> AtualizarEmpresa(Empresa empresa);
+        Task<EmpresaResponseDto> AtualizarEmpresa(Empresa empresa);
        Task AdicionarEmpresa(Empresa empresa);
-        Task<EmpresaResponseDto> BuscarEmpresaResponsePorId(long Id);
+
 
         #endregion
         #region Funcionario
-        Task<List<Funcionario>> BuscarTodosFuncionarios();
+        Task<List<FuncionarioResponseDto>> BuscarTodosFuncionarios();
+        Task<FuncionarioResponseDto> BuscarFuncionarioResponsePorId(long Id);
         Task<Funcionario> BuscarFuncionarioPorId(long Id);
         Task<FuncionarioResponseDto> AdicionarFuncionario(Funcionario funcionario);
-        Task<Funcionario> AtualizarFuncionario(Funcionario funcionario);
+        Task<FuncionarioResponseDto> AtualizarFuncionario(Funcionario funcionario);
         Task DeletarFuncionario(long id);
 
         #endregion

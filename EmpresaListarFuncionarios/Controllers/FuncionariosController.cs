@@ -28,7 +28,7 @@ namespace FuncionarioListarFuncionarios.Controllers
 
         // GET: api/Funcionarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Funcionario>>> GetFuncionario()
+        public async Task<ActionResult<IEnumerable<FuncionarioResponseDto>>> GetFuncionario()
         {
             try
             {
@@ -42,11 +42,11 @@ namespace FuncionarioListarFuncionarios.Controllers
 
         // GET: api/Funcionarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Funcionario>> GetFuncionario(int id)
+        public async Task<ActionResult<FuncionarioResponseDto>> GetFuncionario(int id)
         {
             try
             {
-                var Funcionario = await _repositorio.BuscarFuncionarioPorId(id);
+                var Funcionario = await _repositorio.BuscarFuncionarioResponsePorId(id);
 
                 if (Funcionario == null)
                 {
@@ -66,7 +66,7 @@ namespace FuncionarioListarFuncionarios.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<Funcionario> PutFuncionario([FromBody] Funcionario Funcionario)
+        public async Task<FuncionarioResponseDto> PutFuncionario([FromBody] Funcionario Funcionario)
         {
             try
             {

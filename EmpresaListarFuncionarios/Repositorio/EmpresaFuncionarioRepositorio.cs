@@ -51,7 +51,8 @@ namespace EmpresaListarFuncionarios.Repositorio
         {
             try
             {
-                return _contexto.Empresa.Where(x => x.IdEmpresa == Id).FirstOrDefault();
+                var emp = _contexto.Empresa.Where(x => x.IdEmpresa == Id).FirstOrDefault();
+                return emp;
             }
             catch (Exception e)
             {
@@ -70,14 +71,14 @@ namespace EmpresaListarFuncionarios.Repositorio
                 throw new Exception(e.Message);
             }
         }
-        public async Task<Empresa> AtualizarEmpresa(Empresa empresa)
+        public async Task<EmpresaResponseDto> AtualizarEmpresa(Empresa empresa)
         {
             try
             {
                 _contexto.Entry(empresa).State = EntityState.Modified;
                 _contexto.Empresa.Update(empresa);
                 await _contexto.SaveChangesAsync();
-                return empresa;
+                return MappRespEmpresa(empresa);
             }
             catch (Exception e)
             {
@@ -176,8 +177,8 @@ namespace EmpresaListarFuncionarios.Repositorio
                 _contexto.Funcionario.Add(funcionario);
 
                 await _contexto.SaveChangesAsync();
-                 var func = await BuscarFuncionarioPorId(funcionario.IdFuncionario);
-                return await MappRespFuncionario(func);
+                 var func = await BuscarFuncionarioResponsePorId(funcionario.IdFuncionario);
+                return func;
             }
             catch (Exception e)
             {
@@ -185,13 +186,25 @@ namespace EmpresaListarFuncionarios.Repositorio
             }
         }
 
-        public async Task<Funcionario> AtualizarFuncionario(Funcionario funcionario)
+        public async Task<FuncionarioResponseDto> AtualizarFuncionario(Funcionario funcionario)
         {
             try
             {
-                _contexto.Funcionario.Update(funcionario);
+               _contexto.Funcionario.Update(funcionario);
                 await _contexto.SaveChangesAsync();
-                return funcionario;
+                return await MappRespFuncionario(funcionario); ;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+        public async Task<FuncionarioResponseDto> BuscarFuncionarioResponsePorId(long Id)
+        {
+            try
+            {
+                var func = await _contexto.Funcionario.Where(x => x.IdFuncionario == Id).FirstOrDefaultAsync();
+                return await MappRespFuncionario(func);
             }
             catch (Exception e)
             {
@@ -202,18 +215,28 @@ namespace EmpresaListarFuncionarios.Repositorio
         {
             try
             {
-                return await _contexto.Funcionario.Where(x => x.IdFuncionario == Id).FirstOrDefaultAsync();
+                var func = await _contexto.Funcionario.Where(x => x.IdFuncionario == Id).FirstOrDefaultAsync();
+                return func;
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
         }
-        public async Task<List<Funcionario>> BuscarTodosFuncionarios()
+        public async Task<List<FuncionarioResponseDto>> BuscarTodosFuncionarios()
         {
+
             try
             {
-                return await _contexto.Funcionario.ToListAsync();
+                var response = new List<FuncionarioResponseDto>();
+                var Listfun = await _contexto.Funcionario.ToListAsync();
+                foreach (var func in Listfun)
+                {
+                    var funcResp = await MappRespFuncionario(func);
+                    response.Add(funcResp);
+                }
+
+                return response;
             }
             catch (Exception e)
             {

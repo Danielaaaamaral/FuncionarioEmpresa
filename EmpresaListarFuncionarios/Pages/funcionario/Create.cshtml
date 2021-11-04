@@ -1,6 +1,7 @@
 ﻿@page
 @model EmpresaListarFuncionarios.Pages.funcionario.CreateModel
 
+
 <h4>Funcionario</h4>
 <hr />
 <div class="row">
@@ -14,8 +15,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Funcionario.IdCargo" class="control-label"></label>
-                <input asp-for="Funcionario.IdCargo" class="form-control" />
-                <span asp-validation-for="Funcionario.IdCargo" class="text-danger"></span>
+                <select asp-for="Funcionario.IdCargo" asp-items="Html.GetEnumSelectList<EmpresaListarFuncionarios.Entidades.Enum.CargosEnum>()">
+                    <option selected="selected" value="">Selecione</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Funcionario.NomeFuncionario" class="control-label"></label>

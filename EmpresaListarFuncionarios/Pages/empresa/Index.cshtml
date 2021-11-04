@@ -8,34 +8,37 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].NomeEmpresa)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].NomeEmpresa)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Logradouro)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Logradouro)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Numero)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Numero)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Cep)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Cep)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Cidade)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Cidade)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Uf)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Uf)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Bairro)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Bairro)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Empresa[0].Complemento)
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].ListFuncionario)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Empresa) {
+@foreach (var item in Model.EmpresaResponseDto) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.NomeEmpresa)
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ListFuncionario)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.IdEmpresa">Edit</a> |
