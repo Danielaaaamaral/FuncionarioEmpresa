@@ -2,7 +2,7 @@
 @model EmpresaListarFuncionarios.Pages.empresa.IndexModel
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Adicionar</a>
 </p>
 <table class="table">
     <thead>
@@ -31,48 +31,65 @@
             <th>
                 @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].Complemento)
             </th>
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.EmpresaResponseDto[0].ListFuncionario)
             </th>
-            <th></th>
+        </tr>
+
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.EmpresaResponseDto) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomeEmpresa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Logradouro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Numero)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cep)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cidade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Uf)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Bairro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Complemento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ListFuncionario)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.IdEmpresa">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.IdEmpresa">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.IdEmpresa">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.EmpresaResponseDto)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeEmpresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Logradouro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Numero)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Uf)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Complemento)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdEmpresa">Editar</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdEmpresa">DetaLhar</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdEmpresa">Apagar</a>
+                </td>
+            </tr>
+            @foreach (var funItem in item.ListFuncionario)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => funItem.NomeFuncionario)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => funItem.NomeEmpresa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => funItem.Cargo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => funItem.Salario)
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
 </table>

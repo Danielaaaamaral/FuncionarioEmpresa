@@ -8,15 +8,12 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Funcionario.IdFuncionario" />
-            <div class="form-group">
-                <label asp-for="Funcionario.IdEmpresa" class="control-label"></label>
-                <input asp-for="Funcionario.IdEmpresa" class="form-control" />
-                <span asp-validation-for="Funcionario.IdEmpresa" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Funcionario.IdEmpresa" />
             <div class="form-group">
                 <label asp-for="Funcionario.IdCargo" class="control-label"></label>
-                <input asp-for="Funcionario.IdCargo" class="form-control" />
-                <span asp-validation-for="Funcionario.IdCargo" class="text-danger"></span>
+                <select asp-for="Funcionario.IdCargo" asp-items="Html.GetEnumSelectList<EmpresaListarFuncionarios.Entidades.Enum.CargosEnum>()">
+                    <option selected="selected" value="">Selecione</option>
+                </select>
             </div>
             <div class="form-group">
                 <label asp-for="Funcionario.NomeFuncionario" class="control-label"></label>
@@ -29,14 +26,14 @@
                 <span asp-validation-for="Funcionario.Salario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Salvar" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index">Voltar</a>
 </div>
 
 @section Scripts {
