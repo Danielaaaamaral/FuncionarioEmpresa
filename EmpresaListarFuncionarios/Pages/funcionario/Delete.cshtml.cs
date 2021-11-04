@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
+using EmpresaListarFuncionarios.Contexto;
 
 namespace EmpresaListarFuncionarios.Pages.funcionario
 {
     public class DeleteModel : PageModel
     {
-        private readonly ClienteFornecedor.Contexto.EmpresaFuncionarioContext _context;
+        private readonly EmpresaFuncionarioContext _context;
 
-        public DeleteModel(ClienteFornecedor.Contexto.EmpresaFuncionarioContext context)
+        public DeleteModel(EmpresaFuncionarioContext context)
         {
             _context = context;
         }

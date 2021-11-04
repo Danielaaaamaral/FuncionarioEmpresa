@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
 using EmpresaListarFuncionarios.Repositorio;
 using EmpresaListarFuncionarios.Entidades.Dtos;
+using EmpresaListarFuncionarios.Contexto;
 
 namespace FuncionarioListarFuncionarios.Controllers
 {

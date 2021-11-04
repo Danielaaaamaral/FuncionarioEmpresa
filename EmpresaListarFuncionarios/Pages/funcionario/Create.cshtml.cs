@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ClienteFornecedor.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
+using EmpresaListarFuncionarios.Contexto;
 
 namespace EmpresaListarFuncionarios.Pages.funcionario
 {
     public class CreateModel : PageModel
     {
-        private readonly ClienteFornecedor.Contexto.EmpresaFuncionarioContext _context;
+        private readonly EmpresaFuncionarioContext _context;
 
-        public CreateModel(ClienteFornecedor.Contexto.EmpresaFuncionarioContext context)
+        public CreateModel(EmpresaFuncionarioContext context)
         {
             _context = context;
         }

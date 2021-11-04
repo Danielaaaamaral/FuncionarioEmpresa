@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using ClienteFornecedor.Contexto;
+using EmpresaListarFuncionarios.Contexto;
 using EmpresaListarFuncionarios.Entidades.Classes;
 using EmpresaListarFuncionarios.Entidades.Dtos;
 using Microsoft.EntityFrameworkCore;

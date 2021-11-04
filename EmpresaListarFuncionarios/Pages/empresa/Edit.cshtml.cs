@@ -6,16 +6,17 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using ClienteFornecedor.Contexto;
+
 using EmpresaListarFuncionarios.Entidades.Classes;
+using EmpresaListarFuncionarios.Contexto;
 
 namespace EmpresaListarFuncionarios.Pages.empresa
 {
     public class EditModel : PageModel
     {
-        private readonly ClienteFornecedor.Contexto.EmpresaFuncionarioContext _context;
+        private readonly EmpresaFuncionarioContext _context;
 
-        public EditModel(ClienteFornecedor.Contexto.EmpresaFuncionarioContext context)
+        public EditModel(EmpresaFuncionarioContext context)
         {
             _context = context;
         }

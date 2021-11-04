@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 
-namespace ClienteFornecedor.Contexto
+namespace EmpresaListarFuncionarios.Contexto
 {
     public class EmpresaFuncionarioContext : DbContext
     {
